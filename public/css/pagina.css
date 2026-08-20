@@ -1,0 +1,448 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+}
+
+body{
+    background: linear-gradient(#020A17, #020A17, #01595A);
+    color:#333;
+}
+
+header{
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right: 50px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+/* hover: Agrega efectos al pasar el mouse.*/
+nav a:hover {
+  color: #22c55e; 
+}
+
+.despliegue {
+        display: none;
+    }
+
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px)
+}
+
+
+.principal{
+    display:flex;
+    padding:20px;
+    flex-direction: column;
+    color:white;
+}
+
+.principal h1{
+    font-size:3rem;
+    padding-left:5px ;
+}
+
+.color{
+    color:#AEBF2A; 
+}
+
+.principal p{
+    padding:10px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif; 
+    letter-spacing: 1px;
+}
+
+.explorador, .creador{
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+  transition:.3s;
+  padding: 12px 12px;
+  width:fit-content;
+  margin: 6px;
+  justify-content:left;
+}
+
+/* Descubre torneos sin distinción de clasificación */
+button.explorador {
+  background-color: #441259;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+/* Crea torneos */
+button .creador{
+  background-color: transparent;
+  border-color: #82A633;
+  color: #82A633;
+  text-align: left;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* INFO */
+
+.info{
+    background-color: #010B15;
+    text-align:center;
+    padding:80px 10%;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.info h2{
+    margin-bottom:20px;
+    color:#AEBF2A;
+    font-size:2rem;
+}
+
+.info p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    color: white;
+}
+
+/* FUNCIONES */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* Base de las tarjetas */
+.cardfut, .cardbasquet, .cardvoley, .cardmas {
+    padding: 12px 8px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    transition: .3s;
+    text-align: center;
+    
+    /* Centrado vertical y horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* tamaño de las imágenes */
+.cardfut img, .cardfut svg,
+.cardbasquet img, .cardbasquet svg,
+.cardvoley img, .cardvoley svg,
+.cardmas img, .cardmas svg {
+    width: 100px;       
+    height: 100px;      
+    object-fit: contain;
+}
+/* Colores de fondo */
+.cardfut { background-color: #0f141680; }
+.cardbasquet { background-color: #0f141680; }
+.cardvoley { background-color: #0f141680; }
+.cardmas { background-color: #0f141680; }
+
+/* Efecto hover (sirve para detectar cuándo el usuario pasa el cursor del mouse por encima de un elemento 
+(como un botón, una tarjeta, un enlace o una imagen) y aplicarle un estilo diferente mientras el mouse esté ahí.)*/
+.cardfut:hover, .cardbasquet:hover, .cardvoley:hover, .cardmas:hover {
+    transform: translateY(-4px);
+}
+
+.card-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box;
+}   
+
+.card-info p{
+    text-align: left;
+}
+
+.card-funcionamiento,
+.card-usuarios,
+.card-sistemas,
+.card-preguntas {
+  background-color: transparent; /* El !important asegura que no haya otra regla molestando */
+  border: 1px solid #1e1b30;
+  border-radius: 16px;
+  padding: 24px;
+  
+  width: 100%;
+  margin-left: auto ;
+  margin-right: auto ;
+  
+  box-sizing: border-box;
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+}
+
+.titulo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.titulo h2 {
+  font-size: 15px;
+  color: #c0f20c; 
+  margin: 0;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item {
+  border-bottom: 1px solid #1e293b;
+  width: 100%;
+  text-align: left; 
+}
+
+.item:last-child {
+  border-bottom: none; /* Sin línea divisoria en la última pregunta */
+}
+
+/* Quitar flecha nativa */
+.item summary::-webkit-details-marker {
+  display: none;
+}
+.item summary {
+  list-style: none;
+}
+
+/* Pregunta interactiva (summary) */
+.pregunta-fila {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 16px 0;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Flecha morada */
+.flecha {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #a78bfa;
+  border-bottom: 2px solid #a78bfa;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0; /* Evita que la flecha se deforme */
+  margin-left: 10px;
+}
+
+/* Rotación al abrir */
+.item[open] .flecha {
+  transform: rotate(-135deg);
+}
+
+/* Respuesta revelada */
+.respuesta {
+  padding-bottom: 16px;
+  text-align: left;
+}
+
+.respuesta p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #8d8989;
+}
+
+/* FOOTER */
+
+footer{
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Mobile y tablet pequeña */
+@media screen and (max-width: 768px) {
+   nav {
+        position: relative;
+    }
+
+    .logo{
+        width: 200px;
+    }
+
+    .fondo {
+        display: none;
+    }
+    .fondotelefono{
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(3px);
+    }
+
+    /* Mostramos el icono */
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #020A17; /* Fondo oscuro integrado con tu header */
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0; /* Quitamos el espacio de escritorio */
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .cardfut img, .cardfut svg,
+    .cardbasquet img, .cardbasquet svg,
+    .cardvoley img, .cardvoley svg,
+    .cardmas img, .cardmas svg {
+    width: 100px;       
+    height: 50px;      
+    object-fit: contain;
+    }
+
+    .card-info {
+    /* En PC, se distribuyen en columnas que se adaptan y se centran */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; /* Centra la grilla completa en pantallas grandes */
+    justify-items: center;    /* Centra cada tarjeta dentro de su espacio */
+    gap: 24px;
+    padding: 32px;
+  }
+
+  .card-funcionamiento,
+  .card-usuarios,
+  .card-sistemas,
+  .card-preguntas {
+    margin: 0 auto;
+  }
+
+  .titulo h2 {
+    font-size: 16px;
+  }
+
+  .pregunta-fila {
+    font-size: 15px;
+    padding: 20px 0; /* Mayor área de click para el cursor de la PC */
+  }
+
+  .respuesta p {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (min-width: 1024px){
+    .fondotelefono{
+        display: none;
+    }
+    .logo{
+        width: 200px;
+    }
+
+    .card-info {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; 
+    justify-items: center;    
+    gap: 25px;
+    padding: 32px;
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1180px){
+    .fondotelefono{
+        display: none;
+    }
+    .logo{
+        width: 200px;
+    }
+
+    .card-info {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; 
+    justify-items: center;    
+    gap: 25px;
+    padding: 32px;
+    }
+
+}

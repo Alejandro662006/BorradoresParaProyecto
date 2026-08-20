@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Torneo</title>
+
+    <!-- Iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../public/css/creaciontorneos.css">
+</head>
+<body>
+    <!-- Background -->
+    <img class="fondo" src="../../public/img/fondoCreaTorneo.png" alt="Fondo">
+
+    <header>
+        <nav>
+            <img src="../../public/img/logonuevo.png" alt="SPL Logo" class="logo">
+  
+  <!-- Checkbox oculto -->
+            <input type="checkbox" id="menu-toggle">
+  
+  <!-- Icono de vinculado al checkbox -->
+            <label for="menu-toggle" class="despliegue">&#9776;</label>
+
+  <!-- Lista de navegación -->
+                <ul class="menu">
+                    <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
+                    <li><a href="../../apps/views/consultadetorneos.html">Torneos</a></li>
+                    <li><a href="../../apps/views/calendario.html">Calendario</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section id="creador" class="create-torneo">
+        <div class="create-card">
+            <h2>NUEVO TORNEO</h2>
+
+            <!-- Stepper Visual -->
+            <div class="stepper">
+                <div class="step-item active" data-step="1"> <!--data-step: Atributo de datos personalizado
+                    guarda información o valores extra dentro de un elemento HTML. También para identificarlo
+                    sencillamente en JS-->
+                    <div class="step-number">1</div>
+                    <span>Info</span> <!--Span: agrupa texto o elementos pequeños-->
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Config</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Fechas</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item" data-step="4">
+                    <div class="step-number">4</div>
+                    <span>Confirmación</span>
+                </div>
+            </div>
+
+            <!-- FORMULARIO -->
+            <form id="torneoForm">
+
+                <!-- PASO 1: INFORMACIÓN -->
+                <div class="form-step active" id="step-1">
+                    <div class="input-torneo">
+                        <label for="nombreTorneo">Nombre del torneo</label>
+                        <input type="text" id="nombreTorneo" placeholder="Ej: Copa de Verano" required>
+                        <ion-icon name="ribbon-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label for="modalidadTorneo">Modalidad</label>
+                        <select id="modalidadTorneo">
+                            <option value="equipos" selected>Equipos</option>
+                            <option value="individual">Individual</option>
+                        </select>
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label for="deporteSelec">Deporte</label>
+                        <input type="text" id="deporteSelec" list="deportes-sugeridos" placeholder="Crea o selecciona una etiqueta.">
+                        <datalist id="deportes-sugeridos">
+                            <option value="Fútbol"></option>
+                            <option value="Pádel"></option>
+                            <option value="Tenis"></option>
+                            <option value="Básquetbol"></option>
+                            <option value="Voleibol"></option>
+                            <option value="Videojuego"></option>
+                        </datalist>
+                        <ion-icon name="trophy-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label for="categoria">Categoría / Nivel</label>
+                        <select id="categoria">
+                            <option value="Amateur">Amateur</option>
+                            <option value="Semi-Profesional">Semi-Profesional</option>
+                            <option value="Profesional">Profesional</option>
+                        </select>
+                        <ion-icon name="medal-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <!-- PASO 2: CONFIGURACIÓN -->
+                <div class="form-step" id="step-2">
+                    <div class="input-torneo">
+                        <label for="formatoTorneo">Formato del torneo</label>
+                        <select id="formatoTorneo">
+                            <option value="Eliminación directa">Eliminación Simple</option>
+                            <option value="Doble Eliminación">Doble Eliminación</option>
+                            <option value="Sistema Suizo">Sistema Suizo</option>
+                            <option value="Mixto">Mixto</option>
+                            <option value="Fase de Grupos">Fase de Grupos + Eliminatoria</option>
+                            <option value="Liga">Todos contra todos (Liga)</option>
+                        </select>
+                        <ion-icon name="chevron-down-outline"></ion-icon> 
+                    </div>
+
+                    <div class="input-torneo mode-equipo">
+                        <label for="equiposPart">Cantidad de Equipos</label>
+                        <select id="equiposPart">
+                            <option value="8">8 equipos</option>
+                            <option value="16" selected>16 equipos</option>
+                            <option value="32">32 equipos</option>
+                        </select>
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo mode-equipo">
+                        <label for="jugadoresPorEquipo">Jugadores titulares por equipo</label>
+                        <input type="number" id="jugadoresPorEquipo" placeholder="Ej: 5 o 11" min="1" value="11">
+                        <ion-icon name="shirt-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo mode-individual is-hidden">
+                        <label for="jugadoresPart">Cantidad de Jugadores</label>
+                        <select id="jugadoresPart">
+                            <option value="8">8 jugadores</option>
+                            <option value="16" selected>16 jugadores</option>
+                            <option value="32">32 jugadores</option>
+                            <option value="64">64 jugadores</option>
+                        </select>
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label for="reglasGenerales">Reglas generales</label>
+                        <textarea id="reglasGenerales" rows="2" placeholder="Describe las reglas del torneo..."></textarea>
+                    </div> 
+                </div>
+
+                <!-- PASO 3: FECHAS Y HORARIOS -->
+                <div class="form-step" id="step-3">
+                    <div class="input-torneo">
+                        <label for="fechaInicio">Fecha de inicio</label>
+                        <input type="date" id="fechaInicio" required>
+                        <ion-icon name="today-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label for="fechaFin">Fecha de finalización</label>
+                        <input type="date" id="fechaFin" required>
+                        <ion-icon name="calendar-outline"></ion-icon>
+                    </div>
+
+                    <div class="input-torneo">
+                        <label>Días de los partidos</label>
+                        <div class="days-selector">
+                            <button type="button" class="day-btn selected">Lun</button>
+                            <button type="button" class="day-btn selected">Mar</button>
+                            <button type="button" class="day-btn selected">Mié</button>
+                            <button type="button" class="day-btn">Jue</button>
+                            <button type="button" class="day-btn selected">Vie</button>
+                            <button type="button" class="day-btn">Sáb</button>
+                            <button type="button" class="day-btn">Dom</button>
+                        </div>
+                    </div>
+
+                    <div class="time-row">
+                        <div class="input-torneo">
+                            <label for="horaInicio">Hora inicio</label>
+                            <input type="time" id="horaInicio" value="18:00">
+                        </div>
+                        <div class="input-torneo">
+                            <label for="horaFin">Hora fin</label>
+                            <input type="time" id="horaFin" value="23:00">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 4: CONFIRMACIÓN --> <!--Summary = Resumen (Mostramos la info ingresada en el formulario)-->
+                <div class="form-step" id="step-4">
+                    <div class="summary-card">
+                        <h3>Resumen del torneo</h3>
+                        
+                        <div class="summary-item">
+                            <ion-icon name="ribbon-outline"></ion-icon>
+                            <div>
+                                <small>Nombre</small> <!-- Small: Representa texto secundario, notas, avisos
+                                legales o aclaraciones de menor importancia-->
+                                <p id="resNombre">-</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <ion-icon name="trophy-outline"></ion-icon>
+                            <div>
+                                <small>Deporte / Categoría / Modalidad</small>
+                                <p id="resDeporteCat">-</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <ion-icon name="people-outline"></ion-icon>
+                            <div>
+                                <small>Formato / Participantes</small>
+                                <p id="resFormatoEquipos">-</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <div>
+                                <small>Fechas</small>
+                                <p id="resFechas">-</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <ion-icon name="time-outline"></ion-icon>
+                            <div>
+                                <small>Horarios</small>
+                                <p id="resHorarios">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-confirm">
+                        <input type="checkbox" id="confirmCheck">
+                        <label for="confirmCheck">Confirmo que la información ingresada es correcta</label>
+                    </div>
+                </div>
+
+                <!-- BOTONES DE NAVEGACIÓN -->
+                <div class="step-buttons">
+                    <button type="button" class="btn-step btn-atras" id="btnPrev" style="display: none;">Atrás</button>
+                    <button type="button" class="boton" id="btnNext">Siguiente</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+    <!-- SCRIPT JS -->
+        <script src="../../public/js/creaciondetorneo.js"></script>
+</body>
+</html>

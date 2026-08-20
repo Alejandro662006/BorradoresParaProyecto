@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario SPL</title>
+    <link rel="stylesheet" href="../../public/css/calendario.css">
+</head>
+<body>
+    <img class="fondo" src="../../public/img/fondoCalendario.png" alt="Fondo">
+    
+    <header>
+        <nav>
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="despliegue">☰</label> 
+            <ul class="menu">
+                <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN es el contenedor que debe crecer -->
+    <main class="principal">
+        <header class="encabezado-seccion">
+            <h1>Calendario</h1>
+            <p>No te pierdas ningún torneo</p>
+        </header>
+
+        <section>
+            <div class="calendario">
+                <!-- Mes actual y botones "header" del calendario -->
+                <div class="calendario-header">
+                    <button id="btn-prev">&lt;</button>
+                    <h2 id="mes-año">Cargando...</h2>
+                    <button id="btn-next">&gt;</button>
+                </div>
+
+                <!-- Días de la semana -->
+                <div class="dias-semana">
+                    <div>Dom</div>
+                    <div>Lun</div>
+                    <div>Mar</div>
+                    <div>Mié</div>
+                    <div>Jue</div>
+                    <div>Vie</div>
+                    <div>Sáb</div>
+                </div>
+
+                <div class="dias-grid" id="dias-contenedor"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+
+   <script src="../../public/js/calendario.js"></script>
+</body>
+</html>
