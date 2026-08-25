@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+stener('DOMContentLoaded', () => {
     const inputBusqueda = document.getElementById('input-busqueda');
     const selectDeporte = document.getElementById('select-deporte');
     const selectCriterio = document.getElementById('select-criterio');
