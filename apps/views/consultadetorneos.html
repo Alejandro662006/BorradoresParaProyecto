@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneos Activos</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <link rel="stylesheet" href="../../public/css/consultadetorneos.css">
+</head>
+<body>
+     <img class="fondo" src="../../public/img/fondoBuscadorTorneo.png">
+     <nav>
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" >
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="despliegue">☰</label>
+
+            <ul class="menu">
+                <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-busqueda">
+        
+        <header class="encabezado-seccion">
+            <h1>Torneos Activos</h1>
+            <p>Encuentra torneos según tus deportes de interés</p>
+        </header>
+
+        <section class="panel-filtros">
+            <!-- Selector de qué busca input -->
+            <div class="grupo-campo">
+                <select id="select-criterio" class="select-filtro">
+                    <option value="todo">Buscar en Todo</option>
+                    <option value="deporte">Buscar por Deporte</option>
+                    <option value="nombre">Buscar por Nombre</option>
+                </select>
+            </div>
+
+            <!-- Texto libre (para nombres o deportes personalizados) -->
+            <div class="grupo-campo campo-principal">
+                <input type="text" id="input-busqueda" placeholder="Escribe un deporte (ej: Handball, Rugby...) o nombre..." class="input-busqueda">
+            </div>
+
+            <div class="grupo-campo">
+                <select id="select-deporte" class="select-filtro">
+                    <option value="todos">Todos los deportes</option>
+                    <option value="futbol">Fútbol</option>
+                    <option value="futbol-sala">Fútbol Sala</option>
+                    <option value="basquet">Básquetbol</option>
+                    <option value="padel">Padel</option>
+                    <option value="otro"> Otro deporte...</option>
+                </select>
+            </div>
+
+            <!-- Etiquetas con opción "Otro" -->
+            <div class="contenedor-etiquetas-filtro">
+                <span class="tag-filtro active" data-deporte="todos">Todos</span>
+                <span class="tag-filtro" data-deporte="futbol">
+                    <ion-icon name="football-outline"></ion-icon> Fútbol
+                </span>
+                <span class="tag-filtro" data-deporte="futbol-sala">
+                    <ion-icon name="football-outline"></ion-icon> Fútbol Sala
+                </span>
+                <span class="tag-filtro" data-deporte="basquet">
+                    <ion-icon name="basketball-outline"></ion-icon> Básquetbol
+                </span>
+                <span class="tag-filtro" data-deporte="padel">
+                    <ion-icon name="tennisball-outline"></ion-icon> Padel
+                </span>
+                <span class="tag-filtro tag-otro" data-deporte="otro">
+                    <ion-icon name="create-outline"></ion-icon> Escribir otro...
+                </span>
+            </div>
+        </section>
+
+        <section class="grilla-torneos" id="grilla-torneos">
+
+            <article class="tarjeta-torneo azul" data-deporte="futbol" data-nombre="copa montevideo 11">
+                <div class="badge-estado activo">EN CURSO</div>
+                <h2>Copa Montevideo 11</h2>
+                <p class="juego"><ion-icon name="football-outline"></ion-icon> Fútbol &bull; 11 vs 11</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Montevideo</span>
+                    <span><strong>Cupos:</strong> 12/16</span>
+                    <span><strong>Inicio:</strong> 15 Ago</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <article class="tarjeta-torneo cyan" data-deporte="futbol-sala" data-nombre="liga nocturna futsal">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Liga de Futbol Sala</h2>
+                <p class="juego"><ion-icon name="football-outline"></ion-icon> Fútbol Sala &bull; 5 vs 5</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Montevideo</span>
+                    <span><strong>Cupos:</strong> 8/10</span>
+                    <span><strong>Inicio:</strong> 20 Ago</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <!-- Ejemplo de Deporte Personalizado (Handball) -->
+            <article class="tarjeta-torneo morado" data-deporte="handball" data-nombre="torneo abierto handball">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Torneo Abierto Handball</h2>
+                <p class="juego"><ion-icon name="trophy-outline"></ion-icon> Handball &bull; Masculino / Femenino</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Canelones</span>
+                    <span><strong>Cupos:</strong> 6/8</span>
+                    <span><strong>Inicio:</strong> 10 Sep</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <!-- Ejemplo de Deporte Personalizado (Vóley) -->
+            <article class="tarjeta-torneo magenta" data-deporte="voley" data-nombre="circuito voley playa">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Voley Playa</h2>
+                <p class="juego"><ion-icon name="trophy-outline"></ion-icon> Vóley &bull; Duplas</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Maldonado</span>
+                    <span><strong>Cupos:</strong> 10/16</span>
+                    <span><strong>Inicio:</strong> 05 Sep</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+        </section>
+
+        <div id="sin-resultados" class="sin-resultados" style="display: none;">
+            <p>No se encontraron torneos activos para tu búsqueda.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+
+    <script src="../../public/js/consultadetorneos.js"></script>
+</body>
+</html>
