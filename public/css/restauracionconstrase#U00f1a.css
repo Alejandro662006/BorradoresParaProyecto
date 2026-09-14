@@ -89,7 +89,9 @@ section {
 .DvRContraseña {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  height: 100%;
+  max-height: 450px;
   padding: 40px;
   background: rgba(2, 6, 23, 0.55); 
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -98,7 +100,15 @@ section {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Cuando CUALQUIER input dentro de .DvRContraseña reciba foco */
+.DvRContraseña:focus-within {
+  border-color: rgba(255, 255, 255, 0.6); /* Borde más brillante */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 20px 50px rgba(0, 0, 0, 0.6); /* Resplandor (Glow) */
+}
+
 
 h2 {
   font-size: 2rem;

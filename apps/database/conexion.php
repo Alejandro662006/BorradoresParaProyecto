@@ -15,7 +15,10 @@ $username = 'root';
 
 
 // Contraseña del usuario de MySQL.
-$password = 'ale123';
+//
+// En XAMPP, por defecto, el usuario "root" no tiene
+// contraseña configurada.
+$password = '';
 
 
 try {

@@ -7,12 +7,12 @@ header('Content-Type: application/json');
 
 // Incluimos el archivo que contiene la conexión
 // con la base de datos.
-require_once __DIR__ . '../database/conexion.php';
+require_once __DIR__ . '/../database/conexion.php';
 
 
 // Incluimos el modelo de usuarios, que contiene
 // las funciones relacionadas con los usuarios.
-require_once __DIR__ . '../models/usuarios.php';
+require_once __DIR__ . '/../models/usuarios.php';
 
 
 // Comprobamos que la petición que llegó al servidor
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //
     // Si no se recibe ningún rol, se utiliza
     // "participante" como valor predeterminado.
-    $rol = trim($_POST['rol'] ?? 'participante');
+    $rol = trim($_POST['rol'] ?? 'usuario');
 
 
     // Comprobamos que todos los campos obligatorios
